@@ -1,0 +1,2 @@
+#!/bin/bash
+xhost + && docker run -ti -p 5901:5901 -m 4g --memory-swap="4g" --rm --mount src=kali-root,dst=/root --mount src=kali-pgsql,dst=/var/lib/postgresql --cap-add=NET_ADMIN --device /dev/net/tun --sysctl net.ipv6.conf.all.disable_ipv6=0 -e DISPLAY=:0 -v /tmp/.X11-unix:/tmp/.X11-unix kali-x11:latest /startup.sh && xhost -
